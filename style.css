@@ -17,10 +17,12 @@ body {
 /* topnav.css */
 
 .topnav {
-    border-bottom: 3.5px solid #3d3d3d;
+    border-top: 2px solid #3d3d3d;
+    border-left: 2px solid #3d3d3d;
+    border-right: 2px solid #3d3d3d;
     height: 80px;
     width: 100vw;
-    background-image: linear-gradient(to right, #061726, #061726, #881319, #538083, #538083);
+    background-image: linear-gradient(to right, #061726,#538083,  #538083);
     position: fixed; /* Make it stick to the top */
     top: 0; /* Pin it to the very top */
     left: 0; /* Pin it to the very left */
@@ -29,7 +31,7 @@ body {
 
 /* New Flexbox Container for the main content area below the topnav */
 .main-layout-area {
-    border: 3.5px solid #3d3d3d;
+    border: 1px solid #3d3d3d;
     display: flex; /* Arrange sidebar and main-content side-by-side */
     position: relative; /* Needed for calc() height below, and for potential sidenav positioning */
     /* Push this entire area down to account for the fixed topnav */
@@ -68,7 +70,7 @@ body {
 }
 
 #sidenav {
-    border: 3.5px solid #3d3d3d;
+    border: 1px solid #3d3d3d;
     background-color: #061726;
     color: #FBF5F3;
     width: 18vw; /* Fixed width for the sidebar */
@@ -84,7 +86,7 @@ body {
 /* maincontent.css */
 
 .main-content {
-    border: 3.5px solid #3d3d3d;
+    border: 1px solid #3d3d3d;
     background-color: #538083;
     color: #061726;
     flex: 1; /* Allow main-content to grow and take all remaining horizontal space */
