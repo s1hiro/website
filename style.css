@@ -1,72 +1,123 @@
-* {margin: 0; padding: 0;}
+/* Default's */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Good practice for sizing calculations */
+}
+
+html, body {
+    height: 100%; /* Ensure html and body take full height */
+}
 
 body {
-    font-family: sans-serif;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    /* We'll manage the space for the topnav below */
 }
 
-a {
-    text-decoration: none !important;
+/* topnav.css */
+
+.topnav {
+    border-bottom: 3.5px solid #3d3d3d;
+    height: 80px;
+    width: 100vw;
+    background-image: linear-gradient(to right, #061726, #061726, #881319, #538083, #538083);
+    position: fixed; /* Make it stick to the top */
+    top: 0; /* Pin it to the very top */
+    left: 0; /* Pin it to the very left */
+    z-index: 1000; /* Ensure it stays above other content */
 }
 
-#main {
-  transition: margin-left .5s;
-  padding: 20px;
+/* New Flexbox Container for the main content area below the topnav */
+.main-layout-area {
+    border: 3.5px solid #3d3d3d;
+    display: flex; /* Arrange sidebar and main-content side-by-side */
+    position: relative; /* Needed for calc() height below, and for potential sidenav positioning */
+    /* Push this entire area down to account for the fixed topnav */
+    margin-top: 80px; /* This needs to match the topnav's height */
+    height: calc(100vh - 80px); /* Fill the remaining viewport height */
+    overflow: hidden; /* Manage potential scrollbars here */
 }
 
-#sideNav {
-    background-color: #061726;
-    color: #FBF5F3;
-    width: 250px;
-    height: 100vh;
-}
+/* sidenav.css */
 
-.nav-section a {
-    color: #B698A8;
+.sidenav-section a {
+    color: #C81D25;
+    width: auto;
+    height: auto;
+    background-color: rgba(200, 29, 38, 0.3);
     text-decoration: none;
     box-shadow: none;
-}
-
-
-
-.nav-divider {
-    color: #183955;
-    margin-top: 3px;
-    width: 50px;
-}
-
-.menu-icon {
-    background-color: lightgray;
-    border: none;
-    cursor: pointer;
-    padding: 15px;
-    position: fixed; 
-    top: 15px;
-    left: 15px;
-    z-index: 101; 
-}
-
-.menu-icon .bar {
     display: block;
-    width: 25px;
-    height: 3px;
-    background-color: #333;
-    margin: 5px 0;
-    transition: 0.4s;
+    padding: 8px 15px;
+    margin-bottom: 5px;
 }
 
-.menu-icon.open .bar1 {
-    transform: rotate(-45deg) translate(-5px, 6px);
+.sidenav-summary {
+    color: #FBF5F3;
+    padding: 10px;
 }
 
-.menu-icon.open .bar2 {
-    opacity: 0;
+.sidenav-divider {
+    border-color: #183955;
+    margin-left: 3px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 100px;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 15px;
 }
 
-.menu-icon.open .bar3 {
-    transform: rotate(45deg) translate(-5px, -6px);
+#sidenav {
+    border: 3.5px solid #3d3d3d;
+    background-color: #061726;
+    color: #FBF5F3;
+    width: 18vw; /* Fixed width for the sidebar */
+    flex-shrink: 0; /* Prevent sidebar from shrinking */
+    overflow-y: auto; /* Allow sidebar content to scroll if it overflows vertically */
+    /* Add transition for when it's toggled by JS */
+    transition: width 0.5s ease;
 }
+
+/* end */
+
+
+/* maincontent.css */
 
 .main-content {
-    padding: 20px;
-    transition: margin-left 0.5s;
+    border: 3.5px solid #3d3d3d;
+    background-color: #538083;
+    color: #061726;
+    flex: 1; /* Allow main-content to grow and take all remaining horizontal space */
+    overflow-y: auto; /* Add scrolling to the main content if it overflows vertically */
+    /* Add transition for when it's toggled by JS */
+    transition: width 0.5s ease, flex-grow 0.5s ease;
 }
+
+#main-text {
+    max-width: 810px; /* Use max-width for responsiveness */
+    width: 95%; /* Make it responsive */
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: rgba(6, 23, 38, 0.25);
+    margin: 10px; /* Center the text block with auto margins, keeps 10px top/bottom */
+    padding: 10px;
+}
+
+#header1 {
+    font-size: 60px;
+}
+
+#welcsummary, #p1, #p2 {
+    color: black;
+}
+
+#welcsummary {
+    font-size: 25px;
+}
+
+#p1 {
+    font-size: 17px;
+}
+
+/* end */
