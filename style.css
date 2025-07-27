@@ -2,16 +2,16 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* Good practice for sizing calculations */
+    box-sizing: border-box; 
 }
 
 html, body {
-    height: calc(100vh - 80px); /* Ensure html and body take full height */
+    height: calc(100vh - 80px); 
 }
 
 body {
     font-family: "Trebuchet MS", Helvetica, sans-serif;
-    /* We'll manage the space for the topnav below */
+    
 }
 
 /* topnav.css */
@@ -23,34 +23,53 @@ body {
     height: 80px;
     width: 100vw;
     background-image: linear-gradient(to right, #061726,#538083,  #538083);
-    position: fixed; /* Make it stick to the top */
-    top: 0; /* Pin it to the very top */
-    left: 0; /* Pin it to the very left */
-    z-index: 1000; /* Ensure it stays above other content */
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    z-index: 1000; 
 }
 
-/* New Flexbox Container for the main content area below the topnav */
-.main-layout-area {
+.main-layout-area {    
     border: 1px solid #3d3d3d;
-    display: flex; /* Arrange sidebar and main-content side-by-side */
-    position: relative; /* Needed for calc() height below, and for potential sidenav positioning */
-    /* Push this entire area down to account for the fixed topnav */
-    margin-top: 80px; /* This needs to match the topnav's height */
-    height: calc(100vh - 80px); /* Fill the remaining viewport height */
-    overflow: hidden; /* Manage potential scrollbars here */
+    display: flex;
+    position: relative;
+    margin-top: 80px; 
+    height: calc(100vh - 80px); 
+    overflow: hidden; 
 }
 
 /* sidenav.css */
 
+.main-sidenav-divider {
+    border-color: #183955;
+    width: 300px;
+    margin-left: 3px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 15px;
+}
+
+.sidenav-section {
+    text-align: center; 
+}
+
+#catimg, #nissanimg {
+    vertical-align: middle;
+}
+
 .sidenav-section a {
+    display: inline-block;  
+    font-size: 25px;
     color: #C81D25;
-    width: auto;
     height: auto;
     background-color: rgba(200, 29, 38, 0.3);
     text-decoration: none;
-    box-shadow: none;
-    display: block;
-    padding: 8px 15px;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    vertical-align: middle;
 }
 
 .sidenav-summary {
@@ -63,20 +82,31 @@ body {
     margin-left: 3px;
     margin-top: 5px;
     margin-bottom: 5px;
-    width: 100px;
+    width: 175px;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 15px;
+}
+
+.last-sidenav-divider {
+    border-color: #183955;
+    margin-left: 3px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 115px;
     border-style: solid;
     border-width: 1px;
     border-radius: 15px;
 }
 
 #sidenav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     border: 1px solid #3d3d3d;
     background-color: #061726;
     color: #FBF5F3;
-    width: 18vw; /* Fixed width for the sidebar */
-    flex-shrink: 0; /* Prevent sidebar from shrinking */
-    overflow-y: auto; /* Allow sidebar content to scroll if it overflows vertically */
-    /* Add transition for when it's toggled by JS */
+    width: 18vw;
     transition: width 0.5s ease;
 }
 
@@ -89,19 +119,19 @@ body {
     border: 1px solid #3d3d3d;
     background-color: #538083;
     color: #061726;
-    flex: 1; /* Allow main-content to grow and take all remaining horizontal space */
-    overflow-y: auto; /* Add scrolling to the main content if it overflows vertically */
-    /* Add transition for when it's toggled by JS */
     transition: width 0.5s ease, flex-grow 0.5s ease;
+    position: fixed;
+    top: 80px;
+    left: 18vw;
+    right: 0;
+    bottom: 0;
 }
 
 #main-text {
-    max-width: 810px; /* Use max-width for responsiveness */
-    width: 95%; /* Make it responsive */
     border-top-left-radius: 10px;
     border-bottom-right-radius: 10px;
     background-color: rgba(6, 23, 38, 0.25);
-    margin: 10px; /* Center the text block with auto margins, keeps 10px top/bottom */
+    margin: 10px; 
     padding: 10px;
 }
 
