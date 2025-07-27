@@ -57,6 +57,7 @@ body {
 
 #catimg, #nissanimg {
     vertical-align: middle;
+    margin-right: 3px;
 }
 
 .sidenav-section a {
