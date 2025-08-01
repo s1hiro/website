@@ -100,6 +100,15 @@ body {
     border-radius: 15px;
 }
 
+#sideNav-button {
+    background-color: #538083;
+    font-size: 16px;
+    color: #061726;
+    position: fixed;
+    top: 90px;         /* below your topnav */
+    left: 10px;        /* near the left edge */
+}
+
 #sidenav {
     display: flex;
     flex-direction: column;

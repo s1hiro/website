@@ -1,16 +1,19 @@
-// const toggleButton = document.getElementById('toggleButton');
-// const sideNav = document.getElementById('sideNav');
-// const mainContent = document.querySelector('.main-content');
+let sideNavButton = document.getElementById("sideNav-button")
+let sideNav = document.getElementById("sidenav")
+let state = 1 
+let mainContent = document.querySelector("main-content")
 
-// toggleButton.addEventListener('click', () => {
-//     sideNav.classList.toggle('open');
-//     toggleButton.classList.toggle('open'); 
-
-//     if (sideNav.classList.contains('open')) {
-//         sideNav.style.width = '250px';
-//         mainContent.style.marginLeft = '250px'; 
-//     } else {
-//         sideNav.style.width = '0';
-//         mainContent.style.marginLeft = '0'; 
-//     }
-// });
+sideNavButton.onclick = function () {
+    if(state == 1) {
+        sideNav.style.width = "100vw";
+        mainContent.style.left = "0";
+        sideNav.style.display = "none";
+        state = 0
+    } else {
+        
+        mainContent.style.width = "calc(100vw - 18vw)";
+        mainContent.style.left = "18vw";
+        sideNav.style.display = "flex";
+        state = 1
+    }
+}
