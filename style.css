@@ -29,13 +29,40 @@ body {
     z-index: 1000; 
 }
 
-.main-layout-area {    
-    border: 1px solid #3d3d3d;
-    display: flex;
-    position: relative;
-    margin-top: 80px; 
-    height: calc(100vh - 80px); 
-    overflow: hidden; 
+#top-separator {
+    background-color: #3d3d3d;
+    z-index: 1001;
+    width: 1px;
+    height: 80px;
+    position: fixed;
+    left: 18vw;
+}
+
+#TLIcon svg {
+    stroke: #fee86f;
+    vector-effect: non-scaling-stroke;  
+    transform: scale(2);
+    transform-origin: center; 
+    z-index: 1001;
+    position: fixed;
+    left: 30px;
+    top: 30px;
+}
+
+#IconText {
+    color: white;
+    position: fixed;
+    left: 80px;
+    top: 30px;
+    font-size: 20px;
+}
+
+#TNTopLeft {
+    z-index: 1003;
+    width: 345px;
+    height: 80px;
+    background-color: rgba(10,10,10,.4);
+    border-radius: 10px;
 }
 
 /* sidenav.css */
@@ -53,11 +80,6 @@ body {
 
 .sidenav-section {
     text-align: center; 
-}
-
-#catimg, #nissanimg {
-    vertical-align: middle;
-    margin-right: 3px;
 }
 
 .sidenav-section a {
@@ -100,13 +122,29 @@ body {
     border-radius: 15px;
 }
 
+#catimg, #nissanimg {
+    vertical-align: middle;
+    margin-right: 3px;
+}
+
 #sideNav-button {
-    background-color: #538083;
+    z-index: 100000;
+    transition: 0.2s ease;
+    background: none;      
+    border: none;          
+    cursor: pointer;       
+    padding: 0;         
     font-size: 16px;
-    color: #061726;
     position: fixed;
-    top: 90px;         /* below your topnav */
-    left: 10px;        /* near the left edge */
+    top: 30px;      
+    left: 300px;  
+}
+
+#sideNav-button svg {
+    vector-effect: non-scaling-stroke;  
+    transform: scale(1.5);
+    transform-origin: center; 
+    stroke: white;
 }
 
 #sidenav {
@@ -117,7 +155,21 @@ body {
     background-color: #061726;
     color: #FBF5F3;
     width: 18vw;
-    transition: width 0.5s ease;
+    transition: width 0.5s ease, opacity 0.5s ease;
+    overflow: hidden;
+}
+
+#sidenav.collapsed {
+    width: 0;
+}
+
+#sidenav.collapsed * {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+#sidenav:not(.collapsed) * {
+    opacity: 1;
 }
 
 /* end */
@@ -125,16 +177,39 @@ body {
 
 /* maincontent.css */
 
+.main-layout-area {    
+    border: 1px solid #3d3d3d;
+    display: flex;
+    position: relative;
+    margin-top: 80px; 
+    height: calc(100vh - 80px); 
+    overflow: hidden; 
+}
+
 .main-content {
+    flex-grow: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
     border: 1px solid #3d3d3d;
     background-color: #538083;
     color: #061726;
     transition: width 0.5s ease, flex-grow 0.5s ease;
-    position: fixed;
-    top: 80px;
-    left: 18vw;
-    right: 0;
-    bottom: 0;
+}
+
+.main-content {
+    scrollbar-width: thin;
+    scrollbar-color: #C81D25 rgba(0,0,0,0); 
+}
+
+.main-layout-area {
+    display: flex;
+    margin-top: 80px;
+    height: calc(100vh - 80px);
+    overflow: hidden;
+}
+
+#sidenav.collapsed ~ .main-content {
+    left: 0;
 }
 
 #main-text {
